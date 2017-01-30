@@ -1,0 +1,14 @@
+language: c
+
+install: 
+    - make
+    - get-deps
+    - bash-builtins
+
+before_script:
+    - make
+    - enable -f ./myhello.so myhello
+
+script:
+    - time (for ((i=0;i<10000;i++)) ; do ./hello >/dev/null ; done)
+    - time (for ((i=0;i<10000;i++)) ; do myhello >/dev/null ; done)
