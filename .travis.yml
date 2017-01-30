@@ -6,6 +6,7 @@ install:
     - bash-builtins
 
 before_script:
+    - sudo apt-get install bash-builtins
     - make
     - enable -f ./myhello.so myhello
 
